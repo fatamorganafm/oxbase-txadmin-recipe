@@ -1,0 +1,6 @@
+$engine: 3
+$onesync: on
+name: OX Base Server Template
+version: 1.0.0
+author: Judd#7644
+description: An ESX Legacy server recipe utilizing overextended resources.
