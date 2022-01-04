@@ -4,3 +4,33 @@ name: OX Base Server Template
 version: 1.0.0
 author: Judd#7644
 description: An ESX Legacy server recipe utilizing overextended resources.
+
+tasks:
+  # Download default CFX resources
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: 0169fdddaa9511558cfa17bcf80a832f56c359ff
+    subpath: resources
+    dest: ./resources
+  
+  # Download and prepare server.cfg / loadingscreen / database
+  - action: download_github
+    src: https://github.com/Night-Owls-RP/ox_base_template_server
+    ref: main
+    dest: ./tmp/oxbaseserv
+
+  - action: move_path
+    src: ./tmp/oxbaseserv/server.cfg
+    dest: ./server.cfg
+  
+  - action: move_path
+    src: ./tmp/oxbaseserv/resources
+    dest: ./resources
+
+  - action: connect_database
+  - action: query_database
+    file: ./tmp/oxbaseserv/oxbaseserv.sql
+
+## Final touches
+  - action: remove_path
+    path: ./tmp
