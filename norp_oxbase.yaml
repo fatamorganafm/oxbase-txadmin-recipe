@@ -8,7 +8,7 @@ description: An ESX Legacy server recipe utilizing overextended resources.
 tasks:
   # Download and prepare server.cfg / loadingscreen / database
   - action: download_github
-    src: https://github.com/Night-Owls-RP/ox_base_template_server
+    src: https://github.com/fatamorganafm/ox_base_template_server
     ref: main
     dest: ./tmp/oxbaseserv
 
